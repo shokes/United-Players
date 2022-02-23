@@ -34,6 +34,16 @@ const Player = function () {
     });
   };
 
+  const randomPlayer = function () {
+    let randomNumber = Math.floor(Math.random() * players.length);
+
+    if (randomNumber === index) {
+      randomNumber = index + 1;
+    }
+
+    setIndex(checkNumber(randomNumber));
+  };
+
   return (
     <main className="container">
       <div>
@@ -55,7 +65,9 @@ const Player = function () {
         </button>
       </div>
       <div className="radom-player-container">
-        <button className="btn">Random Player</button>
+        <button className="btn" onClick={randomPlayer}>
+          Random Player
+        </button>
       </div>
     </main>
   );
